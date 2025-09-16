@@ -33,7 +33,7 @@ class Database
         protected array $queries,
         protected ?Closure $debug,
         protected array $options,
-        bool $usePDOAdapter = false
+        bool $usePDOAdapter = true // The SQLite3 contains a bug that executes queries more than once. Until this bug is fixed it is recommended to use PDO for interfacing with SQLite3.
     ) {
         $adapter = $driver->getAdapter(
             $host,
